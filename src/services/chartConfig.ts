@@ -21,19 +21,15 @@ export function getChartOptions(
 
   return {
     chart: {
-      height: '70%',
-      backgroundColor: '#ffffff',
+      height: '100%',
+      backgroundColor: 'transparent',
       style: {
-        fontFamily: 'system-ui, -apple-system, sans-serif'
-      }
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+      },
+      margin: [10, 10, 40, 10]
     },
     title: {
-      text: symbol,
-      align: 'left',
-      style: {
-        fontSize: '24px',
-        fontWeight: 'bold'
-      }
+      text: null
     },
     credits: {
       enabled: false
@@ -54,7 +50,7 @@ export function getChartOptions(
       title: {
         text: 'Price ($)'
       },
-      height: '75%',
+      height: '72%',
       lineWidth: 1,
       resize: {
         enabled: true
@@ -72,8 +68,8 @@ export function getChartOptions(
       title: {
         text: 'Volume'
       },
-      top: '75%',
-      height: '25%',
+      top: '73%',
+      height: '27%',
       offset: 0,
       lineWidth: 1
     }],
@@ -142,18 +138,26 @@ export function getChartOptions(
           maxWidth: 768
         },
         chartOptions: {
-          chart: {
-            height: '60%'
+          title: {
+            style: {
+              fontSize: '18px'
+            }
           },
           yAxis: [{
             labels: {
               align: 'left',
-              x: 3
+              x: 3,
+              style: {
+                fontSize: '10px'
+              }
             }
           }, {
             labels: {
               align: 'left',
-              x: 3
+              x: 3,
+              style: {
+                fontSize: '10px'
+              }
             }
           }]
         }

@@ -12,18 +12,20 @@
   }
 </script>
 
-<div class="flex gap-2 flex-wrap">
-  <span class="text-sm font-medium text-gray-700 self-center">Moving Averages:</span>
+<div class="flex gap-1 flex-wrap items-center">
   {#each $smaOptions as sma}
     <button
-      class="px-3 py-1 text-sm rounded-md border transition-all duration-200
+      class="relative px-2.5 py-1 text-xs font-medium rounded-full transition-all duration-200 transform hover:scale-105
         {sma.enabled 
-          ? 'bg-white border-gray-300 shadow-sm' 
-          : 'bg-gray-50 border-gray-200 hover:bg-gray-100'}"
-      style="color: {sma.color}; border-color: {sma.enabled ? sma.color : ''}"
+          ? 'text-white shadow-lg' 
+          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}"
+      style="{sma.enabled ? `background-color: ${sma.color}` : ''}"
       on:click={() => toggleSMA(sma.period)}
     >
-      SMA({sma.period})
+      <span class="relative z-10">{sma.period}</span>
+      {#if sma.enabled}
+        <div class="absolute inset-0 rounded-full opacity-30 animate-pulse" style="background-color: {sma.color}"></div>
+      {/if}
     </button>
   {/each}
 </div>

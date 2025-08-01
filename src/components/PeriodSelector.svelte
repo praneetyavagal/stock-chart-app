@@ -42,21 +42,18 @@
   }
 </script>
 
-<div class="flex gap-2 items-center flex-wrap">
-  <span class="text-sm font-medium text-gray-700">Period:</span>
-  <div class="flex gap-1">
-    {#each periodOptions as option}
-      <button
-        class="px-3 py-1 text-sm rounded-md border transition-all duration-200
-          {$selectedPeriod.value === option.value 
-            ? 'bg-blue-500 text-white border-blue-500' 
-            : 'bg-white border-gray-300 hover:bg-gray-50'}"
-        on:click={() => selectPeriod(option)}
-      >
-        {option.label}
-      </button>
-    {/each}
-  </div>
+<div class="flex gap-0.5 items-center bg-gray-100 p-0.5 rounded-lg">
+  {#each periodOptions as option}
+    <button
+      class="px-2 py-1 sm:px-3 text-xs font-medium rounded-md transition-all duration-200
+        {$selectedPeriod.value === option.value 
+          ? 'bg-white text-blue-600 shadow-sm' 
+          : 'text-gray-600 hover:text-gray-900'}"
+      on:click={() => selectPeriod(option)}
+    >
+      {option.label}
+    </button>
+  {/each}
 </div>
 
 {#if showCustomDialog}
